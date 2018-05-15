@@ -567,8 +567,6 @@ void deleteComments(NSString *directory) {
         NSMutableString *fileContent = [NSMutableString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
         regularReplacement(fileContent, @"([^:/])//.*",             @"\\1");
         regularReplacement(fileContent, @"^//.*",                   @"");
-        regularReplacement(fileContent, @"/\\*{1,2}[\\s\\S]*?\\*/", @"");
-        regularReplacement(fileContent, @"^\\s*\\n",                @"");
         [fileContent writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     }
 }

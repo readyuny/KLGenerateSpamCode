@@ -28,7 +28,7 @@ $ ./GenerateSpamCode \
 - **-spamCodeOut [垃圾代码文件输出目录] [垃圾代码方法增加的参数名]** 生成垃圾代码。程序会扫描`源码文件夹绝对路径`下的 .m .swift 文件中的类和方法，并生成`category`和`extension`文件，文件中的方法是在代码原方法的基础上增加`垃圾代码方法增加的参数名`参数。如：`-spamCodeOut /dir AppLog`，`- (void)setupKeys {}`>`- (void)setupKeysAppLog:(NSString *)appLog {}`，`- (void)foo:(NSString *)str {}`>`- (void)foo:(NSString *)str appLog:(NSString *)appLog {}`
 - **-ignoreDirNames [忽略文件夹名称字符串]** 忽略这些文件夹，对`-modifyClassNamePrefix`和`-spamCodeOut`参数有效。目前只会忽略`源码文件夹绝对路径`下一级的这些目录。如：`/p/s -ignoreDirNames categorys`，那么`/p/s/categorys`会被忽略，但`/p/s/viewControllers/categorys`不会忽略。
 - **-handleXcassets** 修改`xxx.xcassets`文件夹中的 png 资源文件名，同时也`Contents.json`文件中的关联名称，不会影响代码中使用图片。
-- **-deleteComments** 删除工程目录下 .h .m .swift 文件中的注释和空行。
+- **-deleteComments** 删除工程目录下 .h .m .swift 文件中的注释。
 
 ## 另外修改图片 hash 值的方法
 使用 [ImageMagick](http://www.imagemagick.org/) 对 png 图片做轻量压缩，及不损失图片质量，又可改变图片文件 hash 值。方法：
